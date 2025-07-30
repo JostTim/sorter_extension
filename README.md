@@ -1,0 +1,1 @@
+This extension is meant to use a prompt to an AI provider (you have to supply your own api key, not included) to help organize your tabs into groups.
