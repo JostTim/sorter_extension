@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="stylesheet" href="options.css">
+  </head>
+
+  <body>
+    <form>
+      <div class="form-group">
+        <label for="API_KEY">AI provider API Key</label>
+        <input type="text" id="API_KEY" name="API_KEY" />
+      </div>
+
+      <div class="form-group">
+        <label for="filter_grouped_tabs_from_prompt">Filter out tabs already in a group from the AI prompt input</label>
+        <input type="checkbox" id="filter_grouped_tabs_from_prompt" name="filter_grouped_tabs_from_prompt" />
+      </div>
+
+      <div class="form-group">
+        <label for="autorun_prompt_at_extension_opening">Autorun AI prompt at opening extension window ?</label>
+        <input type="checkbox" id="autorun_prompt_at_extension_opening" name="autorun_prompt_at_extension_opening" />
+      </div>
+      
+      <button type="submit">Save</button>
+    </form>
+    <script src="options.js"></script>
+  </body>
+</html>

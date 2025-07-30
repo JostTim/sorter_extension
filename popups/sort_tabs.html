@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabs Organizer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="sort_tabs.css">
+  </head>
+  <body>
+
+    <div class="d-flex justify-content-between align-items-center m-2">
+        <h1 class="mb-0">Tabs Organizer</h1>
+        <button id="extensionOptions" class="button m-0">
+            <img src="../icons/more.svg" class="p-0">
+        </button>
+    </div>
+
+    <div class="card px-2 py-1 mt-1 mx-2 mb-2">
+        <div class="d-flex align-items-center justify-content-between m-1 mb-2">
+            <h5 class="align-self-center mb-0">Browser Infos</h5> 
+            <div class="flex-grow-1"></div>
+            <button id="getTabs" class="button refresh mr-1 ml-3">
+                <img src="../icons/refresh.svg" class="p-0">
+            </button>
+            <button id="saveTabs" class="button download" disabled>
+                <img src="../icons/download.svg" class="p-0">
+            </button>
+        </div>
+    
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="title">Open tabs</div>
+                <div id="opened_tabs_text" class="value"></div>
+            </div>
+            <div class="list-group-item">
+                <div class="title">Ungrouped Tabs</div>
+                <div id="ungrouped_tabs_text" class="value"></div>
+            </div>
+            <div class="list-group-item">
+                <div class="title">Existing groups</div>
+                <div id="existing_groups_text" class="value"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card px-2 py-1 mt-1 mx-2 mb-2">
+        <div class="d-flex align-items-center justify-content-between m-1 mb-2">
+            <h5 class="align-self-center mb-0">Reorganisation infos</h5> 
+            <div class="flex-grow-1 pl-2"></div>
+            <button id="getAssociations" class="button refresh mr-1 ml-3" disabled>
+                <img src="../icons/refresh.svg" class="p-0">
+            </button>
+            <button id="saveAssociations" class="button download" disabled>
+                <img src="../icons/download.svg" class="p-0">
+            </button>
+        </div>
+    
+        <div class="list-group mb-2" id="associationsInfoList">
+            <div class="list-group-item">
+                <div class="title">Auto Associations</div>
+                <div id="automatic_associations_text" class="value"></div>
+            </div>
+            <div class="list-group-item">
+                <div class="title">Existing Groups Used</div>
+                <div id="existing_groups_used_text" class="value"></div>
+            </div>
+            <div class="list-group-item">
+                <div class="title">New Groups</div>
+                <div id="new_groups_text" class="value"></div>
+            </div>
+        </div>
+
+        <button 
+          id="orderFromAssociations" 
+          class="push-button mb-1 d-flex align-items-center justify-content-center" 
+          disabled>
+          <img src="../icons/auto.svg" class="p-0 mr-1"><span>Auto Order Tabs</span>
+        </button>
+
+      </div>
+
+  <script src="sort_tabs.js"></script>
+  </body>
+</html>

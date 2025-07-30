@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "Tabs Organizer",
+    "version": "1.0",
+    "description": "Tools to organize the tabs.",
+    "icons": {
+        "32": "icons/icon.svg",
+        "64": "icons/icon.svg",
+        "48": "icons/icon.svg",
+        "96": "icons/icon.svg"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "tabs.organizer@firefox.extensions.com"
+        }
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "tabGroups",
+        "tabs"
+    ],
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
+    },
+    "browser_action": {
+        "default_icon": "icons/icon.svg",
+        "default_title": "Sort Tabs",
+        "default_popup": "popups/sort_tabs.html"
+    },
+    "options_ui": {
+        "page": "options.html"
+    }
+}
