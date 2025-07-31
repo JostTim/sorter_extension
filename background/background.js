@@ -22,6 +22,22 @@ function handle_request(request, sender, sendResponse) {
             .catch(error => sendResponse({ result: 'error', message: error.message }));
         return true;  // Indicates that the response will be sent asynchronously
     }
+
+    if (request.action === 'ensureStorageInitialization') {
+        ensureStorageInitialization()
+            .then(() => sendResponse({ result: "success", message: "Initialized Successfully" }))
+            .catch(error => sendResponse({ result: 'error', message: error.message }))
+        return true;
+    }
+
+    if (request.action === "saveStorageSync") {
+        ensureStorageInitialization()
+            .then(() => sendResponse({ result: "success", message: "Saved Successfully" }))
+            .catch(error => sendResponse({ result: 'error', message: error.message }))
+        return true;
+
+    }
+
 }
 
 async function get_associations(tabs, groups, options) {
@@ -184,3 +200,14 @@ async function find_all_tabs_for_group(associations, groupName) {
 function onError(error) {
     console.log(`Error: ${error}`);
 }
+
+
+async function ensureStorageInitialization() {
+
+}
+
+async function saveStorageSync(data) {
+
+}
+
+

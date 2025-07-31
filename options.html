@@ -23,8 +23,15 @@
         <label for="autorun_prompt_at_extension_opening">Autorun AI prompt at opening extension window ?</label>
         <input type="checkbox" id="autorun_prompt_at_extension_opening" name="autorun_prompt_at_extension_opening" />
       </div>
+
+      <div class="form-group">
+        <label for="new_ai_prompt">Enter a new AI prompt if desired</label>
+        <input type="text" id="new_ai_prompt" name="new_ai_prompt" />
+      </div>
+
+      <div id="old_ai_prompts"></div>
       
-      <button type="submit">Save</button>
+      <button type="submit">Save</button><div id="submitMessage"></div>
     </form>
     <script src="options.js"></script>
   </body>
