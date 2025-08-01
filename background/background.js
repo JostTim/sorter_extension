@@ -201,13 +201,113 @@ function onError(error) {
     console.log(`Error: ${error}`);
 }
 
-
 async function ensureStorageInitialization() {
+    const existing_data = await browser.storage.sync.get();
+    let updated_data = {}
+    if (!"filter_grouped_tabs_from_prompt" in existing_data) {
+        updated_data.filter_grouped_tabs_from_prompt = true;
+    }
+    if (!"autorun_prompt_at_extension_opening" in existing_data) {
+        updated_data.autorun_prompt_at_extension_opening = false;
+    }
+    if (!"API_KEY" in existing_data) {
+        updated_data.autorun_prompt_at_extension_opening = "";
+    }
+    if (!"ai_prompts_id" in existing_data) {
+        updated_data.autorun_prompt_at_extension_opening = "";
+    }
 
+
+    await saveStorageSync(updated_data);
+}
+
+class Storage {
+
+    static async save(data) {
+        await browser.storage.sync.set(data);
+    }
+
+    static async get_value(key) {
+        return (await browser.storage.sync.get(key))[key];
+    }
+}
+
+class AIPrompts {
+    static async setup() {
+
+    }
+
+    static async new_prompt(prompt) {
+        let ai_prompts_ids = await Storage.get_prompts_id();
+        let new_ai_prompt_id = ai_prompts_ids ? ai_prompts_ids[-1] + 1 : 0;
+
+    }
+
+    static async get_prompts_id() {
+        return await Storage.get("ai_prompts_ids");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function setup_ai_prompts() {
+
+}
+
+async function new_ai_prompt(prompt_content) {
+    let ai_prompts_ids = await get_browser_storage_key("ai_prompts_ids");
+    let new_ai_prompt_id = ai_prompts_ids ? ai_prompts_ids[-1] + 1 : 0;
+
+}
+
+
+async function get_ai_prompt(id) {
+    return get_browser_storage_key(`ai_prompt_${id}`);
+}
+
+async function set_selected_ai_prompt(id, prompt) {
+    let data = {};
+    data[`ai_prompt_${id}`] = prompt;
+    await get_browser_storage_key(data);
+}
+
+async function get_ai_id_uses(id) {
+    return get_browser_storage_key(`ai_uses_${id}`);
+}
+
+async function add_ai_id_uses() {
+    let ai_id = await get_selected_ai_prompt_id();
+
+}
+
+async function get_selected_ai_prompt_id() {
+    return await get_browser_storage_key("selected_ai_prompt_id");
+}
+
+async function set_selected_ai_prompt_id(id) {
+    await saveStorageSync({ selected_ai_prompt_id: id });
 }
 
 async function saveStorageSync(data) {
-
+    await browser.storage.sync.set(data);
 }
 
+async function get_browser_storage_key(key) {
+    return (await browser.storage.sync.get(key))[key];
+}
 
